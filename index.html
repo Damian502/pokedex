@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Mini Pokédex</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="pokedex">
+<header class="pokedex__header">
+<h1 class="pokedex__title">Mini Pokédex</h1>
+
+
+<form class="pokedex__controls" id="search-form" autocomplete="off" aria-label="Buscar Pokémon">
+<input class="pokedex__search" id="search-input" type="text" placeholder="Nombre o ID (ej. pikachu o 25)" />
+<button class="pokedex__btn" type="submit" title="Buscar">Buscar</button>
+<button class="pokedex__btn pokedex__btn--ghost" id="btn-load-initial" type="button" title="Cargar iniciales">Cargar iniciales</button>
+</form>
+</header>
+
+
+<main class="pokedex__content">
+<section class="pokemon-list" id="pokemon-list" aria-live="polite" aria-busy="false">
+<!-- Tarjetas de Pokémon renderizadas dinámicamente -->
+</section>
+
+
+<aside class="pokemon-detail" id="pokemon-detail" aria-live="polite">
+<div class="pokemon-detail__placeholder">Busca un Pokémon o carga los iniciales para ver su detalle.</div>
+</aside>
+
+
+<section class="favorites" id="favorites">
+<h2 class="favorites__title">Mis Favoritos</h2>
+<div class="favorites__grid" id="favorites-grid">
+<!-- Favoritos renderizados dinámicamente -->
+</div>
+</section>
+</main>
+
+
+<template id="tpl-card">
+<article class="pokemon-card">
+<div class="pokemon-card__media">
+<img class="pokemon-card__image" alt="sprite" loading="lazy" />
+</div>
+<div class="pokemon-card__body">
+<h3 class="pokemon-card__name"></h3>
+<ul class="pokemon-card__types" aria-label="Tipos"></ul>
+<div class="pokemon-card__meta">
+<span class="pokemon-card__id"></span>
+</div>
+</div>
+<button class="pokemon-card__fav" title="Agregar a favoritos" aria-pressed="false" aria-label="Favorito">★</button>
+</article>
+</template>
+
+
+<template id="tpl-type-chip">
+<li class="type-chip"></li>
+</template>
+
+
+<template id="tpl-stat">
+<div class="stat">
+<div class="stat__label"></div>
+<div class="stat__bar">
+<div class="stat__fill" style="width:0%"></div>
+</div>
+<div class="stat__value"></div>
+</div>
+</template>
+</div>
+
+
+<script src="app.js"></script>
+</body>
+</html>
